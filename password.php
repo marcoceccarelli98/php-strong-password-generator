@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-var_dump($_SESSION['password']);
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +13,8 @@ var_dump($_SESSION['password']);
 </head>
 
 <body class="vh-100 d-flex">
-    <div class="col-10 m-auto">
-        <h1 class="text-center mb-5">Password Generata :</h1>
+    <div class="text-center col-10 m-auto">
+        <h1 class="mb-5">Password Generata :</h1>
         <h3><?php echo $_SESSION['password'] ?></h3>
     </div>
 </body>
