@@ -8,8 +8,9 @@ $charNum = isset($_GET['charNum']) ? intval($_GET['charNum']) : 0;
 $incLetters = isset($_GET['letters']);
 $incNumbers = isset($_GET['numbers']);
 $incSymbols = isset($_GET['symbols']);
+$repeatChar = isset($_GET['repeat']);
 
-$password = genPassword($charNum, $incLetters, $incNumbers, $incSymbols);
+$password = genPassword($charNum, $incLetters, $incNumbers, $incSymbols, $repeatChar);
 
 $_SESSION['password'] = $password;
 
@@ -50,6 +51,10 @@ if (!empty($_SESSION['password'])) {
                     <div class="mx-3">
                         <label class="d-block" for="symbols">Symbols</label>
                         <input type="checkbox" name="symbols">
+                    </div>
+                    <div class="mx-3">
+                        <label class="d-block" for="repeat">Repeat Char</label>
+                        <input type="checkbox" name="repeat">
                     </div>
                 </div>
                 <button class="btn btn-primary">Genera</button>

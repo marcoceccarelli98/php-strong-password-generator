@@ -1,6 +1,6 @@
 <?php
 
-function genPassword($pswLen, $incLetters, $incNumbers, $incSymbols)
+function genPassword($pswLen, $incLetters, $incNumbers, $incSymbols, $repeatChar)
 {
     // DEFINE ARRAYS OF CHARS
     $upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -28,6 +28,16 @@ function genPassword($pswLen, $incLetters, $incNumbers, $incSymbols)
 
     for ($i = 0; $i < $pswLen; $i++) {
         $random_index = rand(0, strlen($totChar) - 1);
+
+        $tempChar = $totChar[$random_index];
+
+        if (!$repeatChar) {
+            while (str_contains($password, $tempChar)) {
+                $random_index = rand(0, strlen($totChar) - 1);
+                $tempChar = $totChar[$random_index];
+            }
+        }
+
         $password .= $totChar[$random_index];
     }
 
