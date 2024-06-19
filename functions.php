@@ -1,6 +1,6 @@
 <?php
 
-function genPassword($pswLen)
+function genPassword($pswLen, $incLetters, $incNumbers, $incSymbols)
 {
     // DEFINE ARRAYS OF CHARS
     $upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -8,7 +8,21 @@ function genPassword($pswLen)
     $numbers = '0123456789';
     $symbols = '!@#$%^&*()-_=+[]{}|;:,.<>?';
 
-    $totChar = $upperCase . $lowerCase . $numbers . $symbols;
+    $totChar = '';
+
+    if ($incLetters) {
+        $totChar .= $upperCase . $lowerCase;
+    }
+    if ($incNumbers) {
+        $totChar .= $numbers;
+    }
+    if ($incSymbols) {
+        $totChar .= $symbols;
+    }
+    if (!$incLetters && !$incNumbers && !$incSymbols) {
+        $totChar = $upperCase . $lowerCase . $numbers . $symbols;
+    }
+
 
     $password = '';
 

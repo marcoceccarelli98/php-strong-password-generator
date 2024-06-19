@@ -5,8 +5,11 @@ include_once __DIR__ . '/functions.php';
 
 // GET NUMBER OF CHAR IN PASSWORD
 $charNum = isset($_GET['charNum']) ? intval($_GET['charNum']) : 0;
+$incLetters = isset($_GET['letters']);
+$incNumbers = isset($_GET['numbers']);
+$incSymbols = isset($_GET['symbols']);
 
-$password = genPassword($charNum);
+$password = genPassword($charNum, $incLetters, $incNumbers, $incSymbols);
 
 $_SESSION['password'] = $password;
 
