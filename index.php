@@ -30,9 +30,25 @@ if (!empty($_SESSION['password'])) {
     <div class="col-10 m-auto">
         <h1 class="text-center mb-5">Password Generator</h1>
         <div class="m-auto">
-            <form action="index.php" method="GET">
-                <label for="charNum">Numero di caratteri : </label>
-                <input type="number" name="charNum">
+            <form class="text-center" action="index.php" method="GET">
+                <div class="mb-3">
+                    <label for="charNum">Numero di caratteri : </label>
+                    <input type="number" name="charNum">
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="mx-3">
+                        <label class="d-block" for="letters">Letters</label>
+                        <input type="checkbox" name="letters">
+                    </div>
+                    <div class="mx-3">
+                        <label class="d-block" for="numbers">Numbers</label>
+                        <input type="checkbox" name="numbers">
+                    </div>
+                    <div class="mx-3">
+                        <label class="d-block" for="symbols">Symbols</label>
+                        <input type="checkbox" name="symbols">
+                    </div>
+                </div>
                 <button class="btn btn-primary">Genera</button>
             </form>
         </div>
