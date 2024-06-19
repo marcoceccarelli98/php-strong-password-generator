@@ -1,5 +1,19 @@
 <?php
-include 'functions.php'
+session_start();
+
+include_once __DIR__ . '/functions.php';
+
+// GET NUMBER OF CHAR IN PASSWORD
+$charNum = isset($_GET['charNum']) ? intval($_GET['charNum']) : 0;
+
+$password = genPassword($charNum);
+
+$_SESSION['password'] = $password;
+
+if (!empty($_SESSION['password'])) {
+    header('Location: ./password.php');
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,20 +29,13 @@ include 'functions.php'
 <body class="vh-100 d-flex">
     <div class="col-10 m-auto">
         <h1 class="text-center mb-5">Password Generator</h1>
-        <div class="row">
-            <div class="col-6">
-                <form action="index.php" method="GET">
-                    <label for="charNum">Numero di caratteri : </label>
-                    <input type="number" name="charNum">
-                    <button class="btn btn-primary">Genera</button>
-                </form>
-            </div>
-            <div class="col-6 text-center">
-                <h2>Password Generata :</h2>
-                <h3><?php echo $password ?></h3>
-            </div>
+        <div class="m-auto">
+            <form action="index.php" method="GET">
+                <label for="charNum">Numero di caratteri : </label>
+                <input type="number" name="charNum">
+                <button class="btn btn-primary">Genera</button>
+            </form>
         </div>
-
     </div>
 </body>
 

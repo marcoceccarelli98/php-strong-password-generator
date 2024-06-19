@@ -1,17 +1,15 @@
 <?php
-// GET NUMBER OF CHAR IN PASSWORD
-$charNum = intval($_GET['charNum']);
 
-// DEFINE ARRAYS OF CHARS
-$upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-$lowerCase = 'abcdefghijklmnopqrstuvwxyz';
-$numbers = '0123456789';
-$symbols = '!@#$%^&*()-_=+[]{}|;:,.<>?';
-
-$total_characters = $upperCase . $lowerCase . $numbers . $symbols;
-
-function genPassword($pswLen, $totChar)
+function genPassword($pswLen)
 {
+    // DEFINE ARRAYS OF CHARS
+    $upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+    $numbers = '0123456789';
+    $symbols = '!@#$%^&*()-_=+[]{}|;:,.<>?';
+
+    $totChar = $upperCase . $lowerCase . $numbers . $symbols;
+
     $password = '';
 
     for ($i = 0; $i < $pswLen; $i++) {
@@ -21,5 +19,3 @@ function genPassword($pswLen, $totChar)
 
     return $password;
 }
-
-$password = genPassword($charNum, $total_characters);
