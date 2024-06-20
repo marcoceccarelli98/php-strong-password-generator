@@ -26,6 +26,10 @@ function genPassword($pswLen, $incLetters, $incNumbers, $incSymbols, $repeatChar
 
     $password = '';
 
+    if (!$repeatChar && $pswLen > strlen($totChar)) {
+        $pswLen = strlen($totChar);
+    }
+
     for ($i = 0; $i < $pswLen; $i++) {
         $random_index = rand(0, strlen($totChar) - 1);
 
